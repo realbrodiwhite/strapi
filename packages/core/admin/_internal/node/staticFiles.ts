@@ -17,9 +17,7 @@ const getEntryModule = (ctx: BuildContext): string => {
     .map(({ importName, path }) => `import ${importName} from '${path}';`)
     .join('\n');
 
-  const flags = {
-    contentReleases: process.env.FEATURE_FLAG_CONTENT_RELEASES,
-  };
+  const features = ctx.strapi.config.get('features', {});
 
   return outdent`
         /**
@@ -42,7 +40,7 @@ const getEntryModule = (ctx: BuildContext): string => {
           document.getElementById("strapi"),
           {
             ${ctx.customisations?.path ? 'customisations,' : ''}
-            flags: ${JSON.stringify(flags, null, 2)},
+            features: ${JSON.stringify(features, null, 2)},
             plugins: {
         ${pluginsObject}
             }

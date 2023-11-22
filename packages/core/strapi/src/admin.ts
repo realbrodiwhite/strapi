@@ -5,11 +5,11 @@ import email from '@strapi/plugin-email/strapi-admin';
 // @ts-expect-error – No types, yet.
 import upload from '@strapi/plugin-upload/strapi-admin';
 // @ts-expect-error – No types, yet.
-import contentReleases from '@strapi/content-releases/strapi-admin';
+import unstable_contentReleases from '@strapi/content-releases/strapi-admin';
 
 const render = (
   mountNode: HTMLElement | null,
-  { plugins, flags, ...restArgs }: RenderAdminArgs
+  { plugins, features, ...restArgs }: RenderAdminArgs
 ) => {
   return renderAdmin(mountNode, {
     ...restArgs,
@@ -18,7 +18,7 @@ const render = (
       // @ts-expect-error – TODO: fix this
       email,
       upload,
-      ...(flags.contentReleases ? { 'content-releases': contentReleases } : {}),
+      ...(features.future?.unstable_contentReleases ? { 'content-releases': unstable_contentReleases } : {}),
       ...plugins,
     },
   });
