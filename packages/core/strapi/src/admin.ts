@@ -18,7 +18,7 @@ const render = (
       // @ts-expect-error – TODO: fix this
       email,
       upload,
-      ...(features.future?.unstable_contentReleases ? { 'content-releases': unstable_contentReleases } : {}),
+      ...(features?.future?.unstable_contentReleases ? { 'content-releases': unstable_contentReleases } : {}),
       ...plugins,
     },
   });

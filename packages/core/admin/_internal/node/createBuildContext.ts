@@ -74,6 +74,16 @@ interface BuildContext {
    */
   target: string[];
   tsconfig?: CLIContext['tsconfig'];
+  /**
+   * Features object with future flags
+   */
+  features?: {
+    [key: string]: unknown;
+    future?: {
+      unstable_contentReleases: boolean;
+      [key: string]: unknown;
+    };
+  }
 }
 
 interface CreateBuildContextArgs extends CLIContext {
@@ -162,6 +172,8 @@ const createBuildContext = async ({
 
   const customisations = await loadUserAppFile(strapiInstance.dirs.app.root);
 
+  const features = strapiInstance.config.get('features', undefined);
+
   const buildContext = {
     appDir: strapiInstance.dirs.app.root,
     basePath: `${adminPath}/`,
@@ -178,6 +190,7 @@ const createBuildContext = async ({
     strapi: strapiInstance,
     target,
     tsconfig,
+    features,
   } satisfies BuildContext;
 
   return buildContext;

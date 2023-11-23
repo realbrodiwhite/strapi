@@ -4,17 +4,16 @@ import { createRoot } from 'react-dom/client';
 
 import { StrapiApp, StrapiAppConstructorArgs } from './StrapiApp';
 
-interface FeatureConfig {
-  [key: string]: unknown;
-  future?: {
-    [key: string]: unknown;
-  };
-}
-
 interface RenderAdminArgs {
   customisations: StrapiAppConstructorArgs['adminConfig'];
-  features: FeatureConfig;
   plugins: StrapiAppConstructorArgs['appPlugins'];
+  features?: {
+    [key: string]: unknown;
+    future?: {
+      unstable_contentReleases: boolean;
+      [key: string]: unknown;
+    };
+  };
 }
 
 const renderAdmin = async (
