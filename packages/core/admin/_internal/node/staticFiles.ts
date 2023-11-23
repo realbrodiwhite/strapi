@@ -33,14 +33,12 @@ const getEntryModule = (ctx: BuildContext): string => {
               )}'`
             : ''
         }
-
-        const features = ${JSON.stringify(ctx.features)};
         
         renderAdmin(
           document.getElementById("strapi"),
           {
             ${ctx.customisations?.path ? 'customisations,' : ''}
-            ${ctx.features ? 'features,' : ''}
+            ${ctx.features ? `features: ${JSON.stringify(ctx.features)},` : ''}
             plugins: {
         ${pluginsObject}
             }

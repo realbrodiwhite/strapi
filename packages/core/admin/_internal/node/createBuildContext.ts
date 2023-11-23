@@ -12,6 +12,7 @@ import { DevelopOptions } from './develop';
 import { getEnabledPlugins, getMapOfPluginsWithAdmin } from './core/plugins';
 import { Strapi } from '@strapi/types';
 import { AppFile, loadUserAppFile } from './core/admin-customisations';
+import type { RenderAdminArgs } from '../../admin/src/render';
 
 interface BuildContext {
   /**
@@ -47,6 +48,10 @@ interface BuildContext {
    * The environment variables to be included in the JS bundle
    */
   env: Record<string, string>;
+  /**
+   * Features object with future flags
+   */
+  features?: RenderAdminArgs['features'];
   logger: CLIContext['logger'];
   /**
    * The build options
@@ -74,16 +79,6 @@ interface BuildContext {
    */
   target: string[];
   tsconfig?: CLIContext['tsconfig'];
-  /**
-   * Features object with future flags
-   */
-  features?: {
-    [key: string]: unknown;
-    future?: {
-      unstable_contentReleases: boolean;
-      [key: string]: unknown;
-    };
-  }
 }
 
 interface CreateBuildContextArgs extends CLIContext {
