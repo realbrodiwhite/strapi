@@ -38,18 +38,12 @@ import * as yup from 'yup';
 import { selectAdminPermissions } from '../../../../selectors';
 import { formatAPIErrors } from '../../../../utils/formatAPIErrors';
 import { TRANSFER_TOKEN_TYPE } from '../../components/Tokens/constants';
-// @ts-expect-error not converted yet
-import FormHead from '../../components/Tokens/FormHead';
-// @ts-expect-error not converted yet
-import LifeSpanInput from '../../components/Tokens/LifeSpanInput';
-// @ts-expect-error not converted yet
-import TokenBox from '../../components/Tokens/TokenBox';
-// @ts-expect-error not converted yet
-import TokenDescription from '../../components/Tokens/TokenDescription';
-// @ts-expect-error not converted yet
-import TokenName from '../../components/Tokens/TokenName';
-// @ts-expect-error not converted yet
-import TokenTypeSelect from '../../components/Tokens/TokenTypeSelect';
+import { FormHead } from '../../components/Tokens/FormHead';
+import { LifeSpanInput } from '../../components/Tokens/LifeSpanInput';
+import { TokenBox } from '../../components/Tokens/TokenBox';
+import { TokenDescription } from '../../components/Tokens/TokenDescription';
+import { TokenName } from '../../components/Tokens/TokenName';
+import { TokenTypeSelect } from '../../components/Tokens/TokenTypeSelect';
 
 import type {
   Create,

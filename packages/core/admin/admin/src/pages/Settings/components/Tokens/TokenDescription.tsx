@@ -1,10 +1,22 @@
-import React from 'react';
-
 import { Textarea } from '@strapi/design-system';
-import PropTypes from 'prop-types';
+import { FormikErrors } from 'formik';
 import { useIntl } from 'react-intl';
 
-const TokenDescription = ({ errors, values, onChange, canEditInputs }) => {
+import { Get } from '../../../../../../shared/contracts/transfer/token';
+
+interface TokenDescriptionProps {
+  errors: FormikErrors<Pick<Get.Response['data'], 'description'>>;
+  values: Pick<Get.Response['data'], 'description'>;
+  onChange: (event: any) => void;
+  canEditInputs: boolean;
+}
+
+export const TokenDescription = ({
+  errors,
+  values,
+  onChange,
+  canEditInputs,
+}: TokenDescriptionProps) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -33,20 +45,3 @@ const TokenDescription = ({ errors, values, onChange, canEditInputs }) => {
     </Textarea>
   );
 };
-
-TokenDescription.propTypes = {
-  errors: PropTypes.shape({
-    description: PropTypes.string,
-  }),
-  onChange: PropTypes.func.isRequired,
-  canEditInputs: PropTypes.bool.isRequired,
-  values: PropTypes.shape({
-    description: PropTypes.string,
-  }).isRequired,
-};
-
-TokenDescription.defaultProps = {
-  errors: {},
-};
-
-export default TokenDescription;

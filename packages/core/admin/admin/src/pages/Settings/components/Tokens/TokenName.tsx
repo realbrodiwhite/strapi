@@ -1,10 +1,17 @@
-import React from 'react';
-
 import { TextInput } from '@strapi/design-system';
-import PropTypes from 'prop-types';
+import { FormikErrors } from 'formik';
 import { useIntl } from 'react-intl';
 
-const TokenName = ({ errors, values, onChange, canEditInputs }) => {
+import { Get } from '../../../../../../shared/contracts/transfer/token';
+
+interface TokenNameProps {
+  errors: FormikErrors<Pick<Get.Response['data'], 'name'>>;
+  values: Pick<Get.Response['data'], 'name'>;
+  onChange: (event: any) => void;
+  canEditInputs: boolean;
+}
+
+export const TokenName = ({ errors, values, onChange, canEditInputs }: TokenNameProps) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -28,20 +35,3 @@ const TokenName = ({ errors, values, onChange, canEditInputs }) => {
     />
   );
 };
-
-TokenName.propTypes = {
-  errors: PropTypes.shape({
-    name: PropTypes.string,
-  }),
-  onChange: PropTypes.func.isRequired,
-  canEditInputs: PropTypes.bool.isRequired,
-  values: PropTypes.shape({
-    name: PropTypes.string,
-  }).isRequired,
-};
-
-TokenName.defaultProps = {
-  errors: {},
-};
-
-export default TokenName;

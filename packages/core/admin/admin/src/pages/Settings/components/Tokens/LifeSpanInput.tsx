@@ -1,12 +1,25 @@
-import React from 'react';
-
 import { Option, Select, Typography } from '@strapi/design-system';
-import PropTypes from 'prop-types';
+import { FormikErrors } from 'formik';
 import { useIntl } from 'react-intl';
 
-import { getDateOfExpiration } from '../../../pages/ApiTokens/EditView/utils/getDateOfExpiration';
+import { Get } from '../../../../../../shared/contracts/transfer/token';
+import { getDateOfExpiration } from '../../pages/ApiTokens/EditView/utils/getDateOfExpiration';
 
-const LifeSpanInput = ({ token, errors, values, onChange, isCreating }) => {
+interface LifeSpanInputProps {
+  errors: Pick<Get.Response['data'], 'lifespan'>;
+  values: FormikErrors<Pick<Get.Response['data'], 'lifespan'>>;
+  onChange: (event: any) => void;
+  isCreating: boolean;
+  token: Get.Response['data'];
+}
+
+export const LifeSpanInput = ({
+  token,
+  errors,
+  values,
+  onChange,
+  isCreating,
+}: LifeSpanInputProps) => {
   const { formatMessage } = useIntl();
 
   return (
@@ -69,31 +82,3 @@ const LifeSpanInput = ({ token, errors, values, onChange, isCreating }) => {
     </>
   );
 };
-
-LifeSpanInput.propTypes = {
-  errors: PropTypes.shape({
-    lifespan: PropTypes.string,
-  }),
-  onChange: PropTypes.func.isRequired,
-  values: PropTypes.shape({
-    lifespan: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  }).isRequired,
-  isCreating: PropTypes.bool.isRequired,
-  token: PropTypes.shape({
-    id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-    type: PropTypes.string,
-    lifespan: PropTypes.string,
-    name: PropTypes.string,
-    accessKey: PropTypes.string,
-    permissions: PropTypes.array,
-    description: PropTypes.string,
-    createdAt: PropTypes.string,
-  }),
-};
-
-LifeSpanInput.defaultProps = {
-  errors: {},
-  token: {},
-};
-
-export default LifeSpanInput;
