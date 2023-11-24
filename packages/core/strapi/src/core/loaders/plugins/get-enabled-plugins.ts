@@ -38,7 +38,7 @@ const getInternalPlugins = (features: FeatureConfig) => [
   '@strapi/plugin-content-type-builder',
   '@strapi/plugin-email',
   '@strapi/plugin-upload',
-  features.future?.unstable_contentReleases ? '@strapi/content-releases' : '',
+  features.future?.unstableContentReleases ? '@strapi/content-releases' : '',
 ].filter(Boolean);
 
 const isStrapiPlugin = (info: PluginInfo) => get('strapi.kind', info) === 'plugin';

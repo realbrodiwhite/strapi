@@ -8,10 +8,8 @@ interface RenderAdminArgs {
   customisations: StrapiAppConstructorArgs['adminConfig'];
   plugins: StrapiAppConstructorArgs['appPlugins'];
   features?: {
-    [key: string]: unknown;
     future?: {
-      unstable_contentReleases: boolean;
-      [key: string]: unknown;
+      unstableContentReleases: boolean;
     };
   };
 }

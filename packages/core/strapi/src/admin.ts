@@ -5,7 +5,7 @@ import email from '@strapi/plugin-email/strapi-admin';
 // @ts-expect-error – No types, yet.
 import upload from '@strapi/plugin-upload/strapi-admin';
 // @ts-expect-error – No types, yet.
-import unstable_contentReleases from '@strapi/content-releases/strapi-admin';
+import unstableContentReleases from '@strapi/content-releases/strapi-admin';
 
 const render = (
   mountNode: HTMLElement | null,
@@ -18,7 +18,7 @@ const render = (
       // @ts-expect-error – TODO: fix this
       email,
       upload,
-      ...(features?.future?.unstable_contentReleases ? { 'content-releases': unstable_contentReleases } : {}),
+      ...(features?.future?.unstableContentReleases ? { 'content-releases': unstableContentReleases } : {}),
       ...plugins,
     },
   });
