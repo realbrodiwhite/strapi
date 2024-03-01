@@ -17971,7 +17971,7 @@ __metadata:
     react-dom: "npm:^18.2.0"
     react-intl: "npm:6.4.1"
     react-router-dom: "npm:5.3.4"
-    sqlite3: "npm:5.1.2"
+    sqlite3: "npm:5.1.5"
     strapi-plugin-workspace-plugin: "workspace:*"
     styled-components: "npm:5.3.3"
   languageName: unknown
@@ -21183,7 +21183,7 @@ __metadata:
     react: "npm:^18.2.0"
     react-dom: "npm:^18.2.0"
     react-router-dom: "npm:5.3.4"
-    sqlite3: "npm:5.1.2"
+    sqlite3: "npm:5.1.5"
     styled-components: "npm:5.3.3"
   languageName: unknown
   linkType: soft
@@ -28500,9 +28500,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sqlite3@npm:5.1.2":
-  version: 5.1.2
-  resolution: "sqlite3@npm:5.1.2"
+"sqlite3@npm:5.1.5":
+  version: 5.1.5
+  resolution: "sqlite3@npm:5.1.5"
   dependencies:
     "@mapbox/node-pre-gyp": "npm:^1.0.0"
     node-addon-api: "npm:^4.2.0"
@@ -28516,7 +28516,7 @@ __metadata:
   peerDependenciesMeta:
     node-gyp:
       optional: true
-  checksum: 90c615fa16ea67d046ea61af7f25ae2af0252d49f64d2de50a07072cf495eb35f9a6e1a557b8e5f481ec176d909cf1c99acad8955b0af7e54d5e6663abedea40
+  checksum: 018e6432131aeb9b4a8218dd1b99cfe703372311fb8bee9f25dcf03f596487bfdb0afb9fc21e050d95ec094f49090871d60e97346a547e43074471e76475bf59
   languageName: node
   linkType: hard
 
